@@ -1,0 +1,12 @@
+{
+  "name": "content-market-code-selection",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --disable-warning=ExperimentalWarning --test tests/offline.test.mjs",
+    "demo": "node --disable-warning=ExperimentalWarning examples/offline-demo.mjs"
+  }
+}

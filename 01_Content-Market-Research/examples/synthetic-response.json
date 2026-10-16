@@ -1,0 +1,110 @@
+{
+  "synthetic": true,
+  "description": "用于公开演示的合成数据；不是平台实际响应或生产备份。",
+  "response": {
+    "code": 200,
+    "data": {
+      "items": [
+        {
+          "id": "synthetic-xhs-001",
+          "note_card": {
+            "title": "合成样本1：电商 AI 演示",
+            "desc": "synthetic：仅用于字段映射和离线测试，不代表真实文章或效果。",
+            "type": "normal",
+            "url": "https://example.invalid/synthetic/1",
+            "time": "2026-01-01",
+            "user": {
+              "user_id": "synthetic-account-1",
+              "nickname": "虚构账号1",
+              "profile_url": "https://example.invalid/account/1"
+            },
+            "interact_info": {
+              "liked_count": "10",
+              "collected_count": "3",
+              "comment_count": "2"
+            }
+          }
+        },
+        {
+          "id": "synthetic-xhs-002",
+          "note_card": {
+            "title": "合成样本2：电商 AI 演示",
+            "desc": "synthetic：仅用于字段映射和离线测试，不代表真实文章或效果。",
+            "type": "normal",
+            "url": "https://example.invalid/synthetic/2",
+            "time": "2026-01-01",
+            "user": {
+              "user_id": "synthetic-account-2",
+              "nickname": "虚构账号2",
+              "profile_url": "https://example.invalid/account/2"
+            },
+            "interact_info": {
+              "liked_count": "20",
+              "collected_count": "7",
+              "comment_count": "3"
+            }
+          }
+        },
+        {
+          "id": "synthetic-xhs-003",
+          "note_card": {
+            "title": "合成样本3：电商 AI 演示",
+            "desc": "synthetic：仅用于字段映射和离线测试，不代表真实文章或效果。",
+            "type": "normal",
+            "url": "https://example.invalid/synthetic/3",
+            "time": "2026-01-01",
+            "user": {
+              "user_id": "synthetic-account-3",
+              "nickname": "虚构账号3",
+              "profile_url": "https://example.invalid/account/3"
+            },
+            "interact_info": {
+              "liked_count": "40",
+              "collected_count": "15",
+              "comment_count": "5"
+            }
+          }
+        },
+        {
+          "id": "synthetic-xhs-004",
+          "note_card": {
+            "title": "合成样本4：电商 AI 演示",
+            "desc": "synthetic：仅用于字段映射和离线测试，不代表真实文章或效果。",
+            "type": "normal",
+            "url": "https://example.invalid/synthetic/4",
+            "time": "2026-01-01",
+            "user": {
+              "user_id": "synthetic-account-4",
+              "nickname": "虚构账号4",
+              "profile_url": "https://example.invalid/account/4"
+            },
+            "interact_info": {
+              "liked_count": "0",
+              "collected_count": "0",
+              "comment_count": "0"
+            }
+          }
+        },
+        {
+          "id": "synthetic-xhs-005",
+          "note_card": {
+            "title": "合成样本5：电商 AI 演示",
+            "desc": "synthetic：仅用于字段映射和离线测试，不代表真实文章或效果。",
+            "type": "normal",
+            "url": "https://example.invalid/synthetic/5",
+            "time": "2026-01-01",
+            "user": {
+              "user_id": "synthetic-account-5",
+              "nickname": "虚构账号5",
+              "profile_url": "https://example.invalid/account/5"
+            },
+            "interact_info": {}
+          }
+        }
+      ],
+      "has_more": false,
+      "search_id": "synthetic-search",
+      "search_session_id": "synthetic-session"
+    }
+  }
+}

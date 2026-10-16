@@ -1,0 +1,20 @@
+# 展示包只收录审阅过的文本文件；忽略规则不能替代隐私检查。
+.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+*.pyc
+.next/
+dist/
+coverage/
+*.log
+*.db
+*.sqlite*
+*.sql
+*.bak
+*.zip
+*.pem
+*.key
+.DS_Store
+Thumbs.db
