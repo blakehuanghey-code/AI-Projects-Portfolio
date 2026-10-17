@@ -1,0 +1,72 @@
+{
+  "synthetic": true,
+  "confirmationRecords": "模拟预设，不是真实用户审批",
+  "originalModelCalled": false,
+  "published": false,
+  "userStyleApproval": "本版展示样式已确认；真实发布未授权",
+  "checksExecuted": true,
+  "records": [
+    {
+      "stage": "ai-draft",
+      "result": "按预期阻断",
+      "reason": "001_订单分析_素材包.md 的“素材确认状态”必须为“已确认”；先完成对应检查或确认"
+    },
+    {
+      "stage": "ai-draft",
+      "result": "模拟条件通过",
+      "checks": [
+        "素材确认与关键素材读取记录：通过"
+      ]
+    },
+    {
+      "stage": "final",
+      "result": "按预期阻断",
+      "reason": "001_订单分析_AI初稿.md 的“母稿确认状态”必须为“已确认”；先完成对应检查或确认"
+    },
+    {
+      "stage": "final",
+      "result": "模拟条件通过",
+      "checks": [
+        "素材确认与关键素材读取记录：通过",
+        "母稿确认与当前版本编辑检查记录：通过（语义依据须实际审读）"
+      ]
+    },
+    {
+      "stage": "wording-review",
+      "result": "模拟条件通过",
+      "checks": [
+        "素材确认与关键素材读取记录：通过",
+        "母稿确认与当前版本编辑检查记录：通过（语义依据须实际审读）",
+        "母稿与终稿当前版本关联：通过"
+      ]
+    },
+    {
+      "stage": "platform-package",
+      "result": "按预期阻断",
+      "reason": "001_订单分析_AI初稿.md 的“文字组合确认状态”必须为“已确认”；先完成对应检查或确认"
+    },
+    {
+      "stage": "platform-package",
+      "result": "模拟条件通过",
+      "checks": [
+        "素材确认与关键素材读取记录：通过",
+        "母稿确认与当前版本编辑检查记录：通过（语义依据须实际审读）",
+        "母稿与终稿当前版本关联：通过",
+        "定稿后的文字组合确认：通过，可以设计图片"
+      ]
+    },
+    {
+      "stage": "final",
+      "result": "按预期阻断",
+      "reason": "母稿质量检查已过期：内容已变，须复核并更新质量依据与指纹"
+    },
+    {
+      "stage": "图片交接",
+      "result": "2 个本地引用对应的 PNG 文件存在",
+      "references": [
+        "images/cover.png",
+        "images/order-chart.png"
+      ]
+    }
+  ]
+}

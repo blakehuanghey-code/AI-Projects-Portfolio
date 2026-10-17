@@ -15,13 +15,13 @@
 <text x="318" y="227" fill="#2366C4" font-size="17" font-weight="700">02</text>
 <text x="318" y="268" fill="#15283F" font-size="23" font-weight="650">采集与补全</text>
 <text x="318" y="302" fill="#607187" font-size="16" font-weight="400">搜索·详情·账号信息</text>
-<rect x="314" y="324" width="178" height="28" rx="7" fill="#E9F1FF" stroke="none"/><text x="325" y="344" fill="#2366C4" font-size="13" font-weight="500">预算检查可运行／请求片段</text>
+<rect x="314" y="324" width="178" height="28" rx="7" fill="#E9F1FF" stroke="none"/><text x="325" y="344" fill="#2366C4" font-size="13" font-weight="500">Mock 请求／预算可运行</text>
 <path d="M527 268 H539" stroke="#8396AF" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="542" y="192" width="224" height="174" rx="14" fill="#FFFFFF" stroke="#D9E2EE"/>
 <text x="562" y="227" fill="#2366C4" font-size="17" font-weight="700">03</text>
 <text x="562" y="268" fill="#15283F" font-size="23" font-weight="650">整理市场样本</text>
 <text x="562" y="302" fill="#607187" font-size="16" font-weight="400">字段整理·去重·分类</text>
-<rect x="558" y="324" width="178" height="28" rx="7" fill="#E9F1FF" stroke="none"/><text x="569" y="344" fill="#2366C4" font-size="13" font-weight="500">整理可运行 · 存取片段</text>
+<rect x="558" y="324" width="178" height="28" rx="7" fill="#E9F1FF" stroke="none"/><text x="569" y="344" fill="#2366C4" font-size="13" font-weight="500">整理／测试库读写可运行</text>
 <path d="M771 268 H783" stroke="#8396AF" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="786" y="192" width="224" height="174" rx="14" fill="#FFFFFF" stroke="#D9E2EE"/>
 <text x="806" y="227" fill="#2366C4" font-size="17" font-weight="700">04</text>
@@ -55,6 +55,6 @@
 <text x="74" y="685" fill="#2366C4" font-size="17" font-weight="600">系统支撑</text>
 <text x="184" y="685" fill="#15283F" font-size="17" font-weight="400">网页工作台 · MySQL · 后台 AI 复核 · 付费账本与缓存</text>
 <text x="74" y="712" fill="#607187" font-size="16" font-weight="400">后台 AI 在保存后独立复核；市场、指定账号与评论资料分域管理。</text>
-<text x="54" y="766" fill="#607187" font-size="15" font-weight="400">图中标签表示展示包收录范围；“可运行”仅指本地独立逻辑，未连接真实服务。</text>
+<text x="54" y="766" fill="#607187" font-size="15" font-weight="400">可运行范围含固定模拟联调与独立 MySQL 测试库；真实采集、原业务数据库和模型未调用。</text>
 <text x="54" y="797" fill="#607187" font-size="15" font-weight="400">补充采集按需确认预算；入素材库不自动启动写作或发布。指定账号评论的网页接入仍待完成。</text>
 </g></svg>

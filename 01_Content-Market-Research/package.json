@@ -7,6 +7,10 @@
   },
   "scripts": {
     "test": "node --disable-warning=ExperimentalWarning --test tests/offline.test.mjs",
-    "demo": "node --disable-warning=ExperimentalWarning examples/offline-demo.mjs"
+    "demo": "node --disable-warning=ExperimentalWarning examples/offline-demo.mjs",
+    "demo:integration": "node --disable-warning=ExperimentalWarning examples/integration-demo.mjs"
+  },
+  "dependencies": {
+    "mysql2": "3.24.4"
   }
 }

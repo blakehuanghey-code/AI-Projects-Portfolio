@@ -1,0 +1,52 @@
+{
+  "synthetic": true,
+  "mockApi": true,
+  "mysqlExecuted": true,
+  "originalDatabaseUsed": false,
+  "modelCalled": false,
+  "paidApiCalled": false,
+  "httpRequests": 2,
+  "sampleCount": 5,
+  "trace": [
+    {
+      "step": "请求准备",
+      "result": "模拟尝试已写入测试表，参数与零费用预算校验通过"
+    },
+    {
+      "step": "模拟接口与整理",
+      "result": "真实本机 HTTP 往返；合成响应解析、规范化与去重得到 5 条记录"
+    },
+    {
+      "step": "MySQL 保存与读取",
+      "result": "独立测试表事务保存 5 条合成记录，回读与输入逐项一致"
+    },
+    {
+      "step": "模拟分类与统计",
+      "result": "预设分类经原校验函数检查、写入测试表后读取并统计；没有调用模型"
+    },
+    {
+      "step": "异常返回保护",
+      "result": "重复分类身份被拒绝，已保存的有效结果不变"
+    },
+    {
+      "step": "事务回滚",
+      "result": "测试插入发生主键冲突后回滚，失败事务没有残留记录"
+    }
+  ],
+  "statistics": [
+    {
+      "contentType": "教程／实践",
+      "platform": "小红书",
+      "count": 3,
+      "share": 0.6,
+      "medianInteractions": 30
+    },
+    {
+      "contentType": "工具／产品测评",
+      "platform": "小红书",
+      "count": 2,
+      "share": 0.4,
+      "medianInteractions": 0
+    }
+  ]
+}
