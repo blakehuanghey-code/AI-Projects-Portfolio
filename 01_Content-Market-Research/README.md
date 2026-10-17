@@ -1,22 +1,24 @@
-# V2｜内容市场研究代码选摘
+# V2｜内容市场研究模块
 
-本目录选自“AI 内容创作系统（V2）”的内容市场研究模块。该模块将人工浏览、筛选和零散记录内容样本的过程集中到工作台，供内容分析与选题研究使用。本包选取 TikHub 小红书搜索 `xhs_search` 及相关处理环节，不包含完整工作台或研究报告。
+本模块选自“AI 内容创作系统”。它把小红书内容的收集、分类和互动统计放在一个网页工作台中，帮助创作者整理研究资料、比较不同内容方向，为选题提供参考。
 
-技术栈为 TypeScript、React、MySQL。原请求代码使用 `json-bigint`，数据库连接使用 `mysql2`；本包不携带生产依赖和配置。
+本包选取小红书搜索及其后的部分处理代码。可以在本地查看演示数据怎样整理、分类结果怎样检查、统计怎样计算；完整工作台和研究报告未收录。
 
-## 文件索引
+技术栈为 TypeScript、React、MySQL。原项目使用 `json-bigint` 处理部分接口数据，使用 `mysql2` 连接数据库；本包不携带生产依赖和配置。
 
-| 环节 | 文件 | 本包形式 |
+## 业务步骤与对应文件
+
+| 业务步骤 | 文件 | 可以查看或验证什么 |
 | --- | --- | --- |
-| 请求参数与预算 | [request-parameters.ts](src/request-parameters.ts)、[paid-policy.ts](src/paid-policy.ts) | 可离线运行的选摘函数 |
-| 字段整理与候选合并 | [normalize.ts](src/normalize.ts)、[model.ts](src/model.ts) | 可离线运行；类型定义供这些模块使用 |
-| 外部请求与执行锁 | [provider-route.excerpt.ts](src/excerpts/provider-route.excerpt.ts)、[paid-store.excerpt.ts](src/excerpts/paid-store.excerpt.ts) | 静态源码片段 |
-| 浏览器保存、内部接口与事务 | [browser-storage.excerpt.ts](src/excerpts/browser-storage.excerpt.ts)、[database-route.excerpt.ts](src/excerpts/database-route.excerpt.ts)、[mysql.excerpt.ts](src/excerpts/mysql.excerpt.ts) | 静态源码片段 |
-| 模型复核 | [ai-runtime.excerpt.ts](src/excerpts/ai-runtime.excerpt.ts)、[review-validation.ts](src/review-validation.ts) | 调用代码为静态片段；返回校验可离线运行 |
-| 聚合与页面呈现 | [statistics.ts](src/statistics.ts)、[workbench.excerpt.tsx](src/excerpts/workbench.excerpt.tsx) | 基础统计为离线适配；页面为静态片段 |
-| 示例与测试 | [输入](examples/synthetic-response.json)、[输出](examples/synthetic-output.json)、[演示入口](examples/offline-demo.mjs)、[测试](tests/offline.test.mjs) | 同一批 5 条合成响应及 10 项测试 |
+| 确认搜索条件，控制调用费用 | [request-parameters.ts](src/request-parameters.ts)、[paid-policy.ts](src/paid-policy.ts) | 参数和预算检查，可在本地运行 |
+| 整理字段，合并重复内容 | [normalize.ts](src/normalize.ts)、[model.ts](src/model.ts) | 数据整理规则和统一记录格式，可在本地运行 |
+| 请求外部服务，避免重复执行 | [provider-route.excerpt.ts](src/excerpts/provider-route.excerpt.ts)、[paid-store.excerpt.ts](src/excerpts/paid-store.excerpt.ts) | 请求处理和费用记录相关片段，供阅读 |
+| 读取和保存资料，防止版本冲突 | [browser-storage.excerpt.ts](src/excerpts/browser-storage.excerpt.ts)、[database-route.excerpt.ts](src/excerpts/database-route.excerpt.ts)、[mysql.excerpt.ts](src/excerpts/mysql.excerpt.ts) | 浏览器、内部接口和数据库之间的处理片段，供阅读 |
+| 让 AI 复核分类，并检查返回结果 | [ai-runtime.excerpt.ts](src/excerpts/ai-runtime.excerpt.ts)、[review-validation.ts](src/review-validation.ts) | 模型调用过程供阅读；结果检查可在本地运行 |
+| 按分类比较样本数量和互动表现 | [statistics.ts](src/statistics.ts)、[workbench.excerpt.tsx](src/excerpts/workbench.excerpt.tsx) | 基础统计可运行；网页展示部分为代码片段 |
+| 对照输入、结果和异常情况 | [输入](examples/synthetic-response.json)、[输出](examples/synthetic-output.json)、[演示入口](examples/offline-demo.mjs)、[测试](tests/offline.test.mjs) | 5 条演示数据及 10 项测试 |
 
-## 离线运行
+## 在本地查看运行结果
 
 使用 Node.js 24，在本目录执行，无需安装依赖：
 
@@ -25,14 +27,15 @@ node --test tests/offline.test.mjs
 node examples/offline-demo.mjs
 ```
 
-演示打印规范化后的样本和聚合结果，对应 `synthetic-output.json`。数据与分类均为预设测试值；入口固定采集时间，将 `isMock` 设为 `true`，不发起外部请求、模型调用或数据库写入。
+第一条运行测试，第二条输出整理后的样本和分类统计，可与 `synthetic-output.json` 对照。数据和分类均提前设定，演示时间固定，没有请求真实服务、调用模型或写入数据库。
 
-测试覆盖参数与分页、缺失值和零值、身份合并、预算限制、已登记请求匹配、模型返回校验及聚合。严格类型检查仅覆盖 `src` 下 6 个纯函数与类型模块；静态片段不参与编译。
+测试覆盖搜索条件、分页、缺失值与零值、重复内容合并、预算限制，以及分类结果能否正确对应原样本。严格 TypeScript 类型检查只覆盖 `src` 下 6 个独立模块，代码片段不作为完整工程编译。
 
-## 选摘与适配
+## 本包保留和省略了什么
 
-- `src/*.ts` 可独立导入；`src/excerpts/*` 保留原项目函数或局部语句，缺少完整类型、连接器和组件上下文。通用函数保留其他平台分支，演示与测试只覆盖本次选定范围。
-- 请求配置只保留 `xhs_search`。规范化省略私有低粉判定调用、阈值说明和公众号主页推导；相关分类保留“待判断”。类型省略未选取的公众号异常值字段及未使用声明。
-- `statistics.ts` 仅保留数量、占比和互动中位数；不包含完整评分与推荐逻辑。模型返回校验检查已有字段与允许取值，不是分类准确率评测或完整 JSON Schema 验证。
-- 补详情、完整规则初筛、保存队列、AI 标签合并、数据库 DDL、连接配置、完整页面与研究报告未收录。私有 Prompt、价格表、真实响应、账号资料和运行日志也不包含在本包中。
-- 数据库片段包含候选增删与事务操作；本包只供阅读，不连接真实数据库。真实采集、模型效果、页面交互和部署均未在本包验证。
+- `src/*.ts` 中的模块可以独立导入；`src/excerpts/*` 是从原项目选取的片段，缺少部分依赖和上下文，供阅读理解，不能直接启动完整应用。
+- 请求配置只保留小红书搜索 `xhs_search`。通用函数中的其他平台分支仍保留，但演示和测试只覆盖本次选定范围。
+- 内容整理代码省略了私有的低粉账号判断、阈值和公众号主页推导；相关分类保留为“待判断”，未使用的类型字段也已省略。
+- 统计只保留数量、占比和互动中位数，没有完整评分和选题推荐规则。分类结果检查关注格式与对应关系，不评估 AI 判断是否准确，也不是完整 JSON Schema 校验。
+- 补充详情、完整规则分类、保存队列、AI 标签合并、数据库建表结构、完整网页和研究报告未收录；私有提示词、价格表、真实数据、账号资料和运行日志也未包含。
+- 数据库片段涉及新增、修改、删除和事务处理，但本包没有连接真实数据库。真实采集、AI 分类效果、页面操作和部署均未在本包验证。
